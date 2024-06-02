@@ -1,0 +1,15 @@
+.skill-card {
+  margin: 10px;
+  color: #f1f5f9;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 100px;
+}
+
+.skill-img {
+  width: 40px;
+  margin-right: 10px;
+}

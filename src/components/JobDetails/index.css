@@ -1,0 +1,37 @@
+.job-details-con {
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+.similar-jobs {
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.similar-jobs-heading {
+  color: #f1f5f9;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.inner-job-details {
+  padding: 50px;
+}
+
+.jd-loader {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jd-fail-content {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,63 @@
+.filter-grp-con {
+  width: 20%;
+  padding: 10px;
+  font-family: 'Roboto';
+}
+
+.profile-con {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+  border-radius: 30px;
+  padding: 10px;
+  font-family: 'Roboto';
+}
+
+.filter-loader-con {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  color: #6366f1;
+  font-size: 18px;
+}
+
+.bio {
+  color: #2c364c;
+  font-size: 14px;
+}
+
+.filter-heading {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.filter-list-con {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.label {
+  color: #f1f5f9;
+  font-family: 'Roboto';
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-item {
+  margin-bottom: 10px;
+}
+
+.filter-inputs {
+  cursor: pointer;
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .filter-grp-con {
+    width: 100%;
+  }
+}

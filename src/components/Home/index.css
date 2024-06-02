@@ -1,0 +1,38 @@
+.home-con {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  height: 100vh;
+  background-size: cover;
+}
+
+.text-con {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 350px;
+  padding: 10px;
+  font-family: 'Roboto';
+}
+
+.home-heading {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.home-desc {
+  color: #f1f5f9;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .home-con {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+  }
+
+  .home-heading {
+    font-size: 20px;
+  }
+
+  .text-con {
+    width: 100%;
+    margin: 0px;
+  }
+}

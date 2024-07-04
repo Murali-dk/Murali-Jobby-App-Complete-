@@ -53,6 +53,14 @@ const salaryRangesList = [
   },
 ]
 
+const locationList = [
+  {id: 1, locat: 'Hyderabad', label: 'HYDERABAD'},
+  {id: 2, locat: 'Bangalore', label: 'BANGALORE'},
+  {id: 3, locat: 'Chennai', label: 'CHENNAI'},
+  {id: 4, locat: 'Delhi', label: 'DELHI'},
+  {id: 5, locat: 'Mumbai', label: 'MUMBAI'},
+]
+
 class Jobs extends Component {
   state = {
     typeVal: [],
@@ -61,6 +69,7 @@ class Jobs extends Component {
     finalInput: '',
     apiStatus: apiStatusConstants.initial,
     jobslist: [],
+    jobLocation: [],
   }
 
   componentDidMount() {
@@ -84,6 +93,28 @@ class Jobs extends Component {
     } else {
       this.setState(
         prevState => ({typeVal: [...prevState.typeVal, newTypeVal]}),
+        this.getJobsInfo,
+      )
+    }
+  }
+
+  locationChange = newLocation => {
+    const {jobLocation} = this.state
+    if (jobLocation.includes(newLocation) === true) {
+      this.setState(
+        prevState => ({
+          jobLocation: prevState.jobLocation.filter(eachVal => {
+            if (eachVal !== newLocation) {
+              return eachVal
+            }
+            return ''
+          }),
+        }),
+        this.getJobsInfo,
+      )
+    } else {
+      this.setState(
+        prevState => ({jobLocation: [...prevState.jobLocation, newLocation]}),
         this.getJobsInfo,
       )
     }
@@ -130,9 +161,10 @@ class Jobs extends Component {
 
   getJobsInfo = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
-    const {typeVal, finalInput, rangeVal} = this.state
+    const {typeVal, finalInput, rangeVal, jobLocation} = this.state
     const updatedType = typeVal.join()
-    const url = `https://apis.ccbp.in/jobs?employment_type=${updatedType}&minimum_package=${rangeVal}&search=${finalInput}`
+    const updateLocation = jobLocation.join()
+    const url = `https://apis.ccbp.in/jobs?employment_type=${updatedType}&minimum_package=${rangeVal}&search=${finalInput}&search_location=${updateLocation}`
     const options = {
       method: 'GET',
       headers: {
@@ -141,6 +173,7 @@ class Jobs extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
+    console.log(data)
     if (response.ok === true) {
       this.onSuccess(data)
     } else {
@@ -258,8 +291,10 @@ class Jobs extends Component {
           <FilterGroup
             employmentTypesList={employmentTypesList}
             salaryRangesList={salaryRangesList}
+            locationList={locationList}
             typeChange={this.typeChange}
             salaryChange={this.salaryChange}
+            locationChange={this.locationChange}
           />
           <div className="jobs-grp-con">{this.getJobs()}</div>
         </div>

@@ -2,6 +2,7 @@
   width: 20%;
   padding: 10px;
   font-family: 'Roboto';
+  position: sticky;
 }
 
 .profile-con {

@@ -102,8 +102,9 @@ class FilterGroup extends Component {
   }
 
   render() {
-    const {employmentTypesList, salaryRangesList} = this.props
+    const {employmentTypesList, salaryRangesList, locationList} = this.props
     const {typeChange} = this.props
+    const {locationChange} = this.props
     return (
       <div className="filter-grp-con">
         <div className="details-con">{this.getResult()}</div>
@@ -152,6 +153,31 @@ class FilterGroup extends Component {
                 </label>
               </li>
             ))}
+          </ul>
+        </div>
+        <hr />
+        <div className="location-container">
+          <h1 className="filter-heading">Location</h1>
+          <ul className="filter-list-con">
+            {locationList.map(eachLocation => {
+              const changeLocation = event => {
+                locationChange(event.target.label)
+              }
+              return (
+                <li className="filter-item" key={eachLocation.id}>
+                  <input
+                    type="checkbox"
+                    id={eachLocation.label}
+                    onChange={changeLocation}
+                    className="filter-inputs"
+                  />
+                  <label className="label" htmlFor={eachLocation.label}>
+                    {' '}
+                    {eachLocation.locat}{' '}
+                  </label>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>
